@@ -39,7 +39,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     """UserProfileManager is to be created later"""
     USERNAME_FIELD = 'email'
     """To make the user enter his email instead of username"""
-    REQUIRED_FIELD = ['name']
+    REQUIRED_FIELDS = ['name']
     """Q1: Why the name in the list must be between quotation marks since it is a variable it should be?"""
     """To make name mandetory and no need to add email since USERNAME_FIELD is by default mandetory"""
     def get_full_name(self):
