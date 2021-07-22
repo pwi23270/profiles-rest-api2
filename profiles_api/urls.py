@@ -1,6 +1,12 @@
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from profiles_api import views
+
+router = DefaultRouter()
+router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
+'''Note: because the router will create the four URLs for us we don't need to put forward slash
+after the first hello-viewset'''
+'''Q: what he means by the four URLs ?'''
 
 """profiles_project URL Configuration
 
@@ -21,4 +27,5 @@ Including another URLconf
 
 urlpatterns = [
     path('hello-view/', views.HelloApiView.as_view()),
+    path('', include(router.urls)),
 ]
